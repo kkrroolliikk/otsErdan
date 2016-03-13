@@ -1,0 +1,8 @@
+local config = {
+
+}
+
+
+function onSay(player, words, param)
+	if player:
+	

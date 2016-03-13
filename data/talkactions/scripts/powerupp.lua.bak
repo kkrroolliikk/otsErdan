@@ -1,0 +1,20 @@
+function onSay(player, words, param)
+	
+	local config = {
+		positionPlayer = player:getPosition();
+		players = Game.getPlayers();
+	}
+	config.players[1]:sendPrivateMessage(player, "TEST", TALKTYPE_BROADCAST)
+	for i = 1, 1000 do
+		config.players[1]:sendPrivateMessage(player, "TEST2", TALKTYPE_BROADCAST)
+		if (player:getHealth() +21 < player:getMaxHealth() or player:getMana() + 21 < player:getMaxMana()) and player:getPosition() == config.positionPlayer then
+			config.players[1]:sendPrivateMessage(player, "leczymy sie", TALKTYPE_BROADCAST)
+			player:addHealth(20)
+			player:addMana(20)
+		else	
+			i = 1000
+			config.players[1]:sendPrivateMessage(player, "TEST3", TALKTYPE_BROADCAST)
+			return false
+		end
+	end
+end	
